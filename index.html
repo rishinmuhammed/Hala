@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hala Ice Cream | Coming Soon</title>
+    <style>
+        :root {
+            --hala-blue: #005DAA;
+            --hala-red: #E31E24;
+            --light-blue: #f0f7ff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-blue);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 93, 170, 0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .logo {
+            max-width: 220px;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--hala-blue);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input[type="email"] {
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        input[type="email"]:focus {
+            border-color: var(--hala-blue);
+        }
+
+        button {
+            background-color: var(--hala-red);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #c4191f;
+            transform: translateY(-2px);
+        }
+
+        .social-links {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--hala-blue);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="logo.png" alt="Hala Ice Cream Logo" class="logo">
+        
+        <h1>Something Sweet is Churning!</h1>
+        <p>We're busy preparing the freshest, most delicious scoops for you. Join our mailing list to get an exclusive invite to our grand opening!</p>
+
+        <form class="signup-form">
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit">Notify Me</button>
+        </form>
+
+        <div class="social-links">
+            Follow our journey: @HalaIceCream
+        </div>
+    </div>
+
+</body>
+</html>
