@@ -3,112 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hala Ice Cream | Coming Soon</title>
+    <title>Hala Ice Cream | Pure Happiness</title>
     <style>
+        /* --- BRAND COLORS --- */
         :root {
-            --hala-blue: #005DAA;
-            --hala-red: #E31E24;
-            --light-blue: #f0f7ff;
+            --hala-blue: #0072bc;
+            --hala-blue-dark: #005a96;
+            --hala-red: #e31e24;
+            --ice-white: #ffffff;
+            --bg-light: #f4f9ff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--light-blue);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-light);
             color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
         }
 
-        .container {
+        /* --- HEADER & LOGO --- */
+        header {
             background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 93, 170, 0.1);
-            max-width: 500px;
-            width: 90%;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo {
-            max-width: 220px;
-            margin-bottom: 2rem;
+            max-height: 80px;
+            width: auto;
         }
 
-        h1 {
-            color: var(--hala-blue);
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        p {
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            color: #555;
-        }
-
-        .signup-form {
+        /* --- HERO SECTION WITH VIDEO --- */
+        .hero {
+            position: relative;
+            height: 80vh;
+            min-height: 500px;
             display: flex;
-            flex-direction: column;
-            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: white;
+            text-align: center;
         }
 
-        input[type="email"] {
-            padding: 12px 15px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            outline: none;
-            font-size: 1rem;
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: -2;
         }
 
-        input[type="email"]:focus {
-            border-color: var(--hala-blue);
+        /* Dark overlay to make text readable */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -1;
         }
 
-        button {
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        /* --- FLAVORS SECTION --- */
+        .section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .section h2 {
+            color: var(--hala-blue);
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 4px;
+            background: var(--hala-red);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .flavor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .flavor-card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-top: 8px solid var(--hala-blue);
+        }
+
+        .flavor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .flavor-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .flavor-card h3 {
+            margin-bottom: 10px;
+            color: var(--hala-blue-dark);
+        }
+
+        /* --- BUTTONS --- */
+        .cta-button {
             background-color: var(--hala-red);
             color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 8px;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
             font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: transform 0.2s, background-color 0.2s;
+            display: inline-block;
+            transition: background 0.3s;
+            margin-top: 40px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(227, 30, 36, 0.3);
         }
 
-        button:hover {
+        .cta-button:hover {
             background-color: #c4191f;
-            transform: translateY(-2px);
         }
 
-        .social-links {
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: var(--hala-blue);
+        /* --- FOOTER --- */
+        footer {
+            background: var(--hala-blue);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            max-height: 50px;
+            filter: brightness(0) invert(1); /* Makes the logo white */
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .hero-content h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <img src="logo.png" alt="Hala Ice Cream Logo" class="logo">
-        
-        <h1>Something Sweet is Churning!</h1>
-        <p>We're busy preparing the freshest, most delicious scoops for you. Join our mailing list to get an exclusive invite to our grand opening!</p>
+    <header>
+        <img src="image.png" alt="Hala Logo" class="logo">
+    </header>
 
-        <form class="signup-form">
-            <input type="email" placeholder="Enter your email address" required>
-            <button type="submit">Notify Me</button>
-        </form>
+    <section class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="ice-cream-bg.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay"></div>
 
-        <div class="social-links">
-            Follow our journey: @HalaIceCream
+        <div class="hero-content">
+            <h1>Experience Hala</h1>
+            <p>Crafted for the ultimate creaminess.</p>
+            <a href="#flavors" class="cta-button">Explore Flavors</a>
         </div>
-    </div>
+    </section>
+
+    <section class="section" id="flavors">
+        <h2>Our Fan Favorites</h2>
+        <div class="flavor-grid">
+            <div class="flavor-card">
+                <span class="flavor-icon">🍦</span>
+                <h3>Velvet Vanilla</h3>
+                <p>Simple, elegant, and made with 100% natural vanilla beans.</p>
+            </div>
+            <div class="flavor-card">
+                <span class="flavor-icon">🍫</span>
+                <h3>Midnight Cocoa</h3>
+                <p>A deep, dark chocolate experience that melts in your mouth.</p>
+            </div>
+            <div class="flavor-card">
+                <span class="flavor-icon">🍓</span>
+                <h3>Summer Berry</h3>
+                <p>Freshly picked strawberries swirled into our signature cream.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <img src="image.png" alt="Hala" class="footer-logo">
+        <p>&copy; 2026 Hala Ice Cream. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Made with love for ice cream lovers.</p>
+    </footer>
 
 </body>
 </html>
